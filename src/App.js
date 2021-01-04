@@ -95,41 +95,44 @@ function App() {
   }
 
   return (
-    <div className="container mx-auto h-screen">
-      <h1 className="text-center text-4xl p-3 tracking-widest">
-        GPA CALCULATOR
+    <div className="bg-purple-300 container mx-auto h-screen">
+      <h1 className="bg-yellow-400 text-left text-10x10 p-7 tracking-widest">
+        GPA CALCULATOR 
       </h1>
       <div className="h-2/3 md:w-2/4 p-3 rounded-lg mx-auto overflow-auto">
-        <h1 className="text-2xl my-3">My courses</h1>
+        <h1 className="bg-pink-400  rounded-3xl p-1 text-center text-2xl my-3">My courses</h1>
         {/* TODO display courses */}
         {myCourses.map(item => {
           return <CourseCard name ={item.name} grd = {item.grd} crd ={item.crd} del={onDeleteCourse} />
         })}
-        <select onChange = { e => 
+        <select className = "bg-red-200  rounded-5xl p-1 text-left" onChange = { e => 
             setInputData({...inputData,crd: e.currentTarget.value}) 
           }>
           {credit.map(item => {
             return <option value={item}>{item}</option>
           })}
-        </select>     
-        <select onChange = { e => 
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+        <select className = "bg-red-200 rounded-5xl p-1 text-left " type="text" onChange = { e => 
            setInputData({...inputData,grd: e.currentTarget.value}) 
           }>
           {grade.map(item => {
             return <option value={item}>{item}</option>
           })}
-        </select>    
-        <form onSubmit ={
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <form onSubmit ={
           e => addCourse(e)}>
           <input type="text" onChange = { e => 
             setInputData({...inputData,name: e.currentTarget.value}) 
           }/>
-            <button type="submit">+</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button className = "bg-blue-500 rounded-2xl p-1 text-left hover:bg-red-200" type="submit"> Add</button>
        </form>
       </div>
       {/* TODO add course input form */}
       {/* TODO display calculated GPA */}
-      <p>{GPA}</p>
+      <p className = "bg-green-500 rounded-2xl p-2 text-center "> gpa is {GPA}</p>
     </div>
   );
 }
